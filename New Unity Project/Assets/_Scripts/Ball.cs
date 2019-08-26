@@ -8,24 +8,32 @@ public class Ball : MonoBehaviour
 
     private Rigidbody rb;
     private bool ballInPlay;
+    public Transform target;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-        
-    
+
+
 
     // Update is called once per frame
+
+    
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1") && ballInPlay == false)
         {
-            transform.parent = null;
+            transform.LookAt(target); 
             ballInPlay = true;
             rb.isKinematic = false;
             rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
         }
+
+        
+
+
     }
 }
