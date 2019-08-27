@@ -5,7 +5,6 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float ballInitialVelocity = 600f;
-
     private Rigidbody rb;
     private bool ballInPlay;
     public Transform target;
@@ -22,14 +21,16 @@ public class Ball : MonoBehaviour
 
     
 
-    void Update()
+    public void Update()
     {
         if (Input.GetButtonDown("Fire1") && ballInPlay == false)
         {
-            transform.LookAt(target); 
+            transform.parent = null;
+            transform.LookAt(target);
             ballInPlay = true;
             rb.isKinematic = false;
-            rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
+            //rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
+            rb.AddForce(transform.forward * ballInitialVelocity);
         }
 
         

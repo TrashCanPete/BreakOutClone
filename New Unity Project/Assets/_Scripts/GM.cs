@@ -34,8 +34,8 @@ public class GM : MonoBehaviour
 
     public void Setup()
     {
-        clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
         Instantiate(bricksPrefab, transform.position, Quaternion.identity);
+        SetupPaddle();
     }
 
     void CheckGameOver()
@@ -78,10 +78,10 @@ public class GM : MonoBehaviour
 
     void SetupPaddle()
     {
-        clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
+        clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity);
         clonePaddle.GetComponentInChildren<Ball>().target = reticle.transform;
     }
-         
+
 
     public void DestroyBrick()
     {
