@@ -6,6 +6,10 @@ public class NewReticleBehaviour : MonoBehaviour
 {
     public Camera cam2use;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
     // Update is called once per frame
     void Update()
     {
